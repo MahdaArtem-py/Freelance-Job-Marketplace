@@ -1,0 +1,11 @@
+<!-- templates/marketplace/project_form.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Post a New Project</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+{% endblock %}

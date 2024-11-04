@@ -1,0 +1,17 @@
+<!-- templates/marketplace/project_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Available Projects</h2>
+<a href="{% url "marketplace:project_create" %}" class="btn btn-primary">Post a New Project</a>
+<ul>
+    {% for project in projects %}
+    <li>
+        <h3><a href="{% url "marketplace:project_detail" pk=project.id%}">{{ project.title }}</a></h3>
+        <p>{{ project.description }}</p>
+        <p>Budget: ${{ project.budget }}</p>
+        <p>Status: {{ project.get_status_display }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

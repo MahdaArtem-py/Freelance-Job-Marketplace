@@ -1,0 +1,26 @@
+<!-- templates/marketplace/project_detail.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ project.title }}</h2>
+<p>{{ project.description }}</p>
+<p>Budget: ${{ project.budget }}</p>
+<p>Status: {{ project.get_status_display }}</p>
+
+<h3>Bids</h3>
+{#<ul>#}
+{#    {% for bid in bids %}#}
+{#    <li>#}
+{#        <strong>{{ bid.freelancer.username }}</strong>: ${{ bid.amount }} - "{{ bid.message }}" #}
+{#        {% if bid.is_accepted %}(Accepted){% endif %}#}
+{#    </li>#}
+{#    {% empty %}#}
+{#    <li>No bids yet.</li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+
+{% if user.is_authenticated %}
+<h3>Place a Bid</h3>
+<a href="#" class="btn btn-primary">Bid on this Project</a>
+{% endif %}
+{% endblock %}
